@@ -10,6 +10,7 @@ section.landing {
     background: url(../images/cover.png);
     background-size: cover;
     background-position: center;
+    background-size: 135rem;
 }
 
 section.landing #empty {
