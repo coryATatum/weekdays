@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section.landing {
+    width: 100%;
+    height: 713px;
+    background: url(../images/cover.png);
+    background-size: cover;
+    background-position: center;
+}
+
+section.landing #empty {
+    width: 100%;
+    height: 600px;
+}
+
+#clickHere {
+    font-size: 25px;
+    color: white;
+    float: right;
+    margin-right: 15px;
+}
+
+svg:hover {
+    color: tomato;
+    cursor: pointer;
+}
