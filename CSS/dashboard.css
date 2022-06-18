@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     list-style-type: none;
-
+    font-family: "Raleway", sans-serif;
 }
 
 a {
@@ -59,7 +59,7 @@ aside {
 
 #logout svg {
     color: grey;
-    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .activity {
@@ -70,14 +70,12 @@ aside {
 .taskDashboard {
     width: 100%;
     height: 711px;
-    border: 1px solid black;
 }
 
 
 .tasks {
-    width: 75%;
+    width: 100%;
     height: 650px;
-
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -86,13 +84,66 @@ aside {
 
 header {
     margin: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 
 }
 
 header h3 {
-    font-family: sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 1.3rem;
 }
+
+.user p {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.search {
+    display: flex;
+    width: 16.5em;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+form {
+    position: relative;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 1em;
+}
+
+
+#searchIcon {
+    position: absolute;
+    float: left;
+    margin: 10px;
+    color: black;
+    margin-left: 2px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+
+
+input {
+    padding: 10px;
+    width: 20em;
+    height: 40px;
+    border-radius: 25px;
+    background-color: transparent;
+    text-indent: 30px;
+}
+
 
 .toDo {
     width: calc(90% / 3);
@@ -102,23 +153,77 @@ header h3 {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
+.toDo p {
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 700;
+    font-family: "Raleway", sans-serif;
+}
+
+.edit {
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.edit p {
+    color: black;
+    font-weight: 700;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.3rem;
+}
+
 .toDoCards li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 5rem;
+    color: lightgray;
     margin: 10px;
+    margin-left: 15px;
     border-radius: 12px;
     width: 90%;
     height: 150px;
-    border: 1px solid black;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.toDoCards li:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+#drag li {
+    font-size: 1.3rem;
+    border: 2px dotted lightgrey;
 }
 
 .cardAdd {
-    background-color: lightgrey;
-    border-radius: 25px;
+    background-color: #f2f2f2;
+    border-radius: 7px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin: 10px;
     margin-top: 20px;
-    margin-left: 25px;
+    margin-left: 30px;
     width: 80%;
-    height: 65px;
-    border: 4px dotted grey;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cardAdd:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    cursor: pointer;
+}
+
+.cardAdd p {
+    font-size: 1.3rem;
+    color: grey;
+    font-weight: 700;
+    font-family: "Raleway", sans-serif;
 }
 
 .doing {
@@ -135,4 +240,79 @@ header h3 {
     background-color: white;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.userDash {
+    background-color: white;
+    width: 30%;
+    height: 711px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.userIcons {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userIcons svg {
+    color: grey;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    height: 150px;
+}
+
+.profile ul li {
+    line-height: 1.8em;
+}
+
+.profile ul li span {
+    margin-left: 5px;
+
+}
+
+#profilePic {
+    height: 5rem;
+    width: 5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 50%;
+    background: url(../images/Afterligh\(10\).jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.progress {
+    padding: 3px;
+    width: 100%;
+}
+
+.progress ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats {
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+}
+
+.stats ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats h5 {
+    font-size: 2rem;
 }
