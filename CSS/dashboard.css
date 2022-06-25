@@ -59,12 +59,14 @@ input:focus {
 }
 
 .btn {
-    width: 5rem;
+    width: 8rem;
+    height: 2.5rem;
     padding: 5px;
-    font-size: 1.1rem;
-    color: #272727;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: white;
     font-weight: 700;
-    background-color: #ffeeda;
+    background-color: #272727;
     display: inline-block;
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
@@ -223,6 +225,35 @@ form {
     font-size: 1.3rem;
 }
 
+.editDropDown:hover {
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
 .toDoCards li {
     display: flex;
     justify-content: center;
@@ -353,7 +384,7 @@ form {
 
 .modal .card form button {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-top: 5px;
+    margin-top: 7px;
 }
 
 #date:hover {

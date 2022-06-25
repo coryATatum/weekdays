@@ -20,3 +20,19 @@ modal.addEventListener('click', function (e) {
     }
 });
 
+const dropDownBtn = document.querySelector('.editDropDown');
+const dropDown = document.querySelector('.dropdown-content');
+
+dropDownBtn.addEventListener('click', open);
+
+function open() {
+    if (dropDown.style.display === 'none') {
+        dropDown.style.display = 'block';
+    } else {
+        dropDown.style.display = 'none';
+    }
+};
+
+
+
+
