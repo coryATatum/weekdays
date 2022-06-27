@@ -196,6 +196,7 @@ form {
     opacity: 0.5;
 }
 
+
 .toDo {
     width: calc(90% / 3);
     height: 600px;
@@ -227,7 +228,10 @@ form {
 
 .editDropDown:hover {
     cursor: pointer;
+    border-radius: 50%;
+    background-color: #eee;
 }
+
 
 .dropdown {
     position: relative;
