@@ -28,19 +28,19 @@
                     <div class="modalTitle">
                         <h2>New Task</h2>
                     </div>
-                    <form action="#">
+                    <form id="form">
                         <div class="taskTitle">
-                            <input type="text" placeholder="Enter Task">
+                            <input type="text" placeholder="Enter Task" name="content" id="content">
                         </div>
                         <div class="deadline">
-                            <input type="date" id="date" placeholder="Enter Deadline">
+                            <input type="date" name="date" id="date" placeholder="Enter Deadline">
                         </div>
                         <div class="taskDescription">
                             <textarea name="description" id="description" cols="5" rows="5"
                                 placeholder="Description"></textarea>
                         </div>
                         <div class="submit">
-                            <button class="btn" id="submit">Add +</button>
+                            <button type="submit" class="btn" id="submit">Add +</button>
                         </div>
                     </form>
                 </div>
@@ -146,28 +146,23 @@
                                     <circle cx="15.728" cy="8.304" r="2"></circle>
                                     <path d="M5,16c-2,1-2,5-2,5s3,0,5-2L5,16z"></path>
                                 </svg></p>
-                            <div class="dropdown">
-                                <svg class="editDropDown" stroke="currentColor" fill="currentColor" stroke-width="0"
-                                    viewBox="0 0 16 16" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                            <div class="cardAdd">
+                                <p>Add</p><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                    viewBox="0 0 16 16" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
-                                        d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+                                        d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z"
+                                        clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M7.5 8a.5.5 0 01.5-.5h4a.5.5 0 010 1H8.5V12a.5.5 0 01-1 0V8z"
+                                        clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <div class="dropdown-content">
-                                    <a href="#">Edit</a>
-                                    <a href="#">Delete</a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="toDoCards">
-                            <ul>
-                                <li>+</li>
-                                <li>+</li>
-                                <li>+</li>
-                            </ul>
-                        </div>
-                        <div class="cardAdd">
-                            <p>+ Add Task</p>
                         </div>
                     </div>
                     <div class="doing">
@@ -180,13 +175,14 @@
                                     </path>
                                 </svg></p>
                             <div class="dropdown">
-                                <svg class="editDropDown" stroke="currentColor" fill="currentColor" stroke-width="0"
-                                    viewBox="0 0 16 16" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="editDropDown" id="doing-editBtn" stroke="currentColor" fill="currentColor"
+                                    stroke-width="0" viewBox="0 0 16 16" height="1.5em" width="1.5em"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                         d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <div class="dropdown-content">
+                                <div class="dropdown-content" id="doing-dropdown">
                                     <a href="#">Edit</a>
                                     <a href="#">Delete</a>
                                 </div>
@@ -210,13 +206,14 @@
                                     </path>
                                 </svg></p>
                             <div class="dropdown">
-                                <svg class="editDropDown" stroke="currentColor" fill="currentColor" stroke-width="0"
-                                    viewBox="0 0 16 16" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="editDropDown" id="done-editBtn" stroke="currentColor" fill="currentColor"
+                                    stroke-width="0" viewBox="0 0 16 16" height="1.5em" width="1.5em"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                         d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <div class="dropdown-content">
+                                <div class="dropdown-content" id="done-dropdown">
                                     <a href="#">Edit</a>
                                     <a href="#">Delete</a>
                                 </div>
@@ -298,6 +295,7 @@
     </section>
 
     <script src="../dashboard.js"></script>
+    <script src="../todo.js"></script>
 </body>
 
 </html>
