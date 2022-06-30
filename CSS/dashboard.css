@@ -202,7 +202,15 @@ form {
     background-color: white;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
+
+.toDo::-webkit-scrollbar {
+    display: none;
+}
+
 
 .toDo p {
     font-size: 1.3rem;
@@ -216,6 +224,7 @@ form {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    scroll-behavior: smooth;
 }
 
 .edit p {
@@ -257,6 +266,14 @@ form {
     background-color: #f1f1f1
 }
 
+
+.overflow {
+    width: 100%;
+    height: 500px;
+    overflow: auto;
+    border: 1px solid black;
+}
+
 .toDoCards li {
     display: flex;
     justify-content: center;
@@ -289,7 +306,7 @@ form {
     margin-left: 15px;
     border: 1px solid lightgray;
     border-radius: 12px;
-    width: 90%;
+    width: 100%;
     height: 150px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -331,8 +348,10 @@ form {
     color: gray;
 }
 
-.due-date svg {
-    margin-left: 30px;
+.delete_editIcons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
 }
 
 .due-date svg:hover {
