@@ -5,14 +5,27 @@ let desc = document.getElementById("description")
 let due_date = document.getElementById("date");
 let posts = document.querySelector(".toDoCards");
 let remove = document.getElementById('delete');
-const modal = document.querySelector('.modal');
-const closeBtn = document.querySelector('#close');
+let toDoBg = document.querySelector('toDo');
+let progressBar = document.getElementById('progressResult');
+let tally = 0;
+
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     formValidation();
-
+    tallyResult();
 });
+
+
+
+function tallyResult() {
+
+    tally = tally + 1;
+    localStorage.setItem('tally', JSON.stringify(tally));
+    tallyData = localStorage.getItem('tally');
+    progressBar.innerHTML = tallyData;
+
+}
 
 let formValidation = () => {
     if (input.value === "") {
@@ -51,11 +64,11 @@ let createPost = () => {
                                 <div class="due-date"><strong>Due Date:</strong>${x.dueDate}
                                     <div class="delete_editIcons">
                                         <i onClick="editTask(this);" class=" fas fa-edit"></i>
-                                        <i onClick="deleteTask(this); createTasks();" class="fas fa-trash-alt"></i>
+                                        <i onClick="deleteTask(this); createTasks(); discard();" class="fas fa-trash-alt" ></i>
                                     </div>
                                 </div>
                             </div>
-         
+                                
     `);
     });
 
@@ -75,39 +88,38 @@ let formReset = () => {
 })()
 
 let editTask = (e) => {
+    let modal = document.querySelector('.modal');
+    let selectedTask = e.parentElement;
 
-    openModal(e);
-    let selectedTask = e.parentElement.parentElement;
+    modal.style.display = 'grid';
+
+
 
     input.value = selectedTask.children[0].innerHTML;
     desc.value = selectedTask.children[1].innerHTML;
     data.value = selectedTask.children[2].innerHTML;
 
     deleteTask(e);
+    createPost(e);
 };
 
 let deleteTask = (e) => {
-    e.parentElement.parentElement.remove();
+    e.parentElement.parentElement.parentElement.remove();
 
     data.splice(e.parentElement.parentElement.id, 1);
 
     localStorage.setItem("data", JSON.stringify(data));
-    document.location.reload();
 };
 
-function openModal() {
-    modal.style.display = 'grid'
-};
+function discard() {
+    tally = tally - 1;
+}
 
-closeBtn.addEventListener('click', closeModal);
 
-function closeModal() {
-    modal.style.display = 'none'
-};
 
-modal.addEventListener('click', function (e) {
-    if (e.target.classList.contains('modal')) {
-        closeModal();
-    }
-});
+
+
+
+
+
 
