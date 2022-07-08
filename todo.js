@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
 
 function tallyResult() {
 
-    tally = tally + 1;
+    tally++;
     localStorage.setItem('tally', JSON.stringify(tally));
     tallyData = JSON.parse(localStorage.getItem("tally"));
     progressBar.innerHTML = tally;
@@ -87,7 +87,7 @@ let formReset = () => {
     data = JSON.parse(localStorage.getItem("data")) || [];
     tallyData = JSON.parse(localStorage.getItem("tally"));
     createPost();
-    tallyResult();
+
 })()
 
 let editTask = (e) => {
@@ -117,7 +117,7 @@ let deleteTask = (e) => {
 
 
 function discard() {
-    tally = tally - 1;
+    tally--;
     progressBar.innerHTML = tally;
 }
 
