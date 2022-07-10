@@ -22,10 +22,11 @@ function tallyResult() {
 
     tally++;
     localStorage.setItem('tally', JSON.stringify(tally));
-    tallyData = JSON.parse(localStorage.getItem("tally"));
-    progressBar.innerHTML = tally;
+    tallyData = (JSON.parse(window.localStorage.getItem('tally')));
+    progressBar.innerHTML = tallyData;
 
 }
+
 
 let formValidation = () => {
     if (input.value === "") {
@@ -46,11 +47,15 @@ let acceptData = () => {
         dueDate: date.value,
     });
 
+
     localStorage.setItem("data", JSON.stringify(data));
 
 
+
     createPost();
+
 };
+
 
 let createPost = () => {
     posts.innerHTML = "";
@@ -82,14 +87,6 @@ let formReset = () => {
     date.value = "";
 };
 
-
-(() => {
-    data = JSON.parse(localStorage.getItem("data")) || [];
-    tallyData = JSON.parse(localStorage.getItem("tally"));
-    createPost();
-
-})()
-
 let editTask = (e) => {
     let modal = document.querySelector('.modal');
     let selectedTask = e.parentElement;
@@ -116,10 +113,24 @@ let deleteTask = (e) => {
 };
 
 
+
 function discard() {
+
     tally--;
-    progressBar.innerHTML = tally;
+    localStorage.setItem('tally', JSON.stringify(tally));
+    tallyData = (JSON.parse(window.localStorage.getItem('tally')));
+    progressBar.innerHTML = tallyData;
 }
+
+(() => {
+    data = JSON.parse(localStorage.getItem("data")) || [];
+    tallyData = (JSON.parse(window.localStorage.getItem('tally'))) || 0;
+    createPost();
+    tallyResult();
+    discard();
+
+
+})()
 
 //----------------------------END TO DO---------------------//
 
