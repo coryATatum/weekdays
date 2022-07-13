@@ -3,17 +3,19 @@ let addTask = document.getElementById("submit")
 let input = document.getElementById("content");
 let desc = document.getElementById("description")
 let due_date = document.getElementById("date");
-let posts = document.querySelector(".toDoCards");
+let posts = document.querySelector(".toDoContainer");
 let remove = document.getElementById('discard');
 let toDoBg = document.querySelector('toDo');
 let progressBar = document.getElementById('progressResult');
-let tally = 0;
+let tally = "0";
 
 //-------------------To Do---------------------------------//
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     formValidation();
     tallyResult();
+
+
 });
 
 
@@ -23,7 +25,7 @@ function tallyResult() {
     tally++;
     localStorage.setItem('tally', JSON.stringify(tally));
     tallyData = (JSON.parse(window.localStorage.getItem('tally')));
-    progressBar.innerHTML = tallyData;
+    progressBar.innerHTML = Number(tallyData);
 
 }
 
@@ -39,6 +41,7 @@ let formValidation = () => {
 };
 
 let data = {};
+
 
 let acceptData = () => {
     data.push({
@@ -62,20 +65,21 @@ let createPost = () => {
     data.map((x, y) => {
         return (posts.innerHTML += `
         <div id=${y} class="task-card" draggable="true">
-                                <div class="task-title">
-                                    <h3>${x.title}</h3>
-                                </div>
-                                <div class="task-desc"><span>${x.desciption}</span></div>
-                                <div class="due-date"><strong>Due Date:</strong>${x.dueDate}
-                                    <div class="delete_editIcons">
-                                        <i onClick="editTask(this);" class=" fas fa-edit"></i>
-                                        <i onClick="deleteTask(this); createTasks();" id="discard"
-                                            class="fas fa-trash-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="task-title">
+            <h3>${x.title}</h3>
+        </div>
+        <div class="task-desc"><span>${x.desciption}</span></div>
+        <div class="due-date"><strong>Due Date:</strong>${x.dueDate}
+            <div class="delete_editIcons">
+                <i onClick="editTask(this);" class=" fas fa-edit"></i>
+                <i onClick="deleteTask(this); createTasks();" id="discard"
+                    class="fas fa-trash-alt"></i>
+            </div>
+        </div>
+    </div>
                                 
     `);
+
     });
 
     formReset();
@@ -124,7 +128,7 @@ function discard() {
 
 (() => {
     data = JSON.parse(localStorage.getItem("data")) || [];
-    tallyData = (JSON.parse(window.localStorage.getItem('tally'))) || 0;
+    tallyData = (JSON.parse(window.localStorage.getItem('tally'))) || "0";
     createPost();
     tallyResult();
     discard();
@@ -134,12 +138,14 @@ function discard() {
 
 //----------------------------Drag and Drop---------------------//
 
+
 const draggables = document.querySelectorAll('.task-card')
-const containers = document.querySelectorAll('.toDoCards')
+const containers = document.querySelectorAll('.container')
 
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
         draggable.classList.add('dragging')
+        removeItem(data);
     })
 
     draggable.addEventListener('dragend', () => {
@@ -158,6 +164,7 @@ containers.forEach(container => {
             container.insertBefore(draggable, afterElement)
         }
     })
+
 })
 
 function getDragAfterElement(container, y) {
@@ -174,6 +181,39 @@ function getDragAfterElement(container, y) {
     }, { offset: Number.NEGATIVE_INFINITY }).element
 }
 
+//----------------USER DASH------------------------//
+
+let menuIcon = document.getElementById('menu');
+let userDashboard = document.querySelector('.userDash');
+let closeIcon = document.getElementById('menuClose');
+
+menuIcon.addEventListener('click', dashOpen)
+
+function dashOpen() {
+    userDashboard.style.display = 'block';
+    menuIcon.style.display = 'none';
+}
+
+closeIcon.addEventListener('click', dashClose)
+
+function dashClose() {
+    userDashboard.style.display = 'none';
+    menuIcon.style.display = 'block';
+}
+
+//----------------Nav Bar------------------//
+
+let todoPage = document.getElementById('todoPage');
+let activity = document.querySelector('.activity');
+let homepage = document.querySelector('.home');
+
+todoPage.addEventListener('click', run)
+
+function run() {
+    activity.style.display = 'block';
+    homepage.style.display = 'none';
+
+}
 
 
 

@@ -6,6 +6,10 @@
     font-family: "Raleway", sans-serif;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 a {
     color: grey;
 }
@@ -47,17 +51,6 @@ input:focus {
     border: none;
 }
 
-#search {
-    text-indent: 30px;
-    width: 16.5rem;
-    border: 1px solid #eee;
-}
-
-#search:focus {
-    outline: none;
-    border: none;
-}
-
 .btn {
     width: 8rem;
     height: 2.5rem;
@@ -82,6 +75,7 @@ section.landing {
     justify-content: space-between;
     align-items: center;
     position: absolute;
+
 
 }
 
@@ -122,9 +116,134 @@ aside {
     margin-right: 10px;
 }
 
+.home {
+    width: 100%;
+    height: 711px;
+}
+
+section.home header {
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+section.home header h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.selection {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selection .first {
+    width: 80%;
+    height: 300px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.selection .second {
+    width: 80%;
+    height: 300px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.widget {
+    width: 25%;
+    height: 250px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.widget:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    cursor: pointer;
+}
+
+.selectionTitle {
+    width: 100%;
+    height: 50px;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    justify-content: center;
+    background-color: #F9A826;
+}
+
+.selectionTitle h1 {
+    color: #272727;
+    margin-top: 10px;
+}
+
+#todoList {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px 12px 0 0;
+    background-image: url(../img/undraw_To_do_re_jaef.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#calender {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px 12px 0 0;
+    background-image: url(../img/undraw_Online_calendar_re_wk3t.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#stickyNotes {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px 12px 0 0;
+    background-image: url(../img/undraw_Taking_notes_re_bnaf.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#budget {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px 12px 0 0;
+    background-image: url(../img/undraw_Financial_data_re_p0fl.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#wellness {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px 12px 0 0;
+    background-image: url(../img/undraw_mindfulness_scgo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 .activity {
     width: 100%;
     display: flex;
+    display: none;
+
+
 }
 
 .taskDashboard {
@@ -154,6 +273,15 @@ header {
     margin-bottom: 15px;
 }
 
+header .welcome {
+    margin-left: 30px;
+}
+
+header #menu:hover {
+    cursor: pointer;
+}
+
+
 header h3 {
     font-family: "Raleway", sans-serif;
     font-size: 1.3rem;
@@ -165,35 +293,8 @@ header h3 {
     font-weight: 700;
 }
 
-.search {
-    display: flex;
-    width: 16.5em;
-    background-color: white;
-    border-radius: 25px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
 form {
     position: relative;
-}
-
-.searchBar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 1em;
-    outline: none;
-}
-
-
-#searchIcon {
-    position: absolute;
-    float: left;
-    margin: 10px;
-    color: black;
-    margin-left: 2px;
-    margin-bottom: 15px;
-    opacity: 0.5;
 }
 
 .toDo {
@@ -202,15 +303,23 @@ form {
     background-color: white;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.toDo .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 520px;
     overflow: auto;
     overflow-x: hidden;
     overflow-y: scroll;
 }
 
-.toDo::-webkit-scrollbar {
+
+.toDo .container::-webkit-scrollbar {
     display: none;
 }
-
 
 .toDo p {
     font-size: 1.3rem;
@@ -298,8 +407,6 @@ form {
     background-size: 15rem;
 }
 
-
-
 .toDoCards .task-card {
     display: flex;
     justify-content: center;
@@ -327,7 +434,7 @@ form {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    width: 91%;
+    width: 90%;
     height: 150px;
     padding: 15px;
     border-radius: 12px;
@@ -505,6 +612,21 @@ form {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
+.doing .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 520px;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.doing .container::-webkit-scrollbar {
+    display: none;
+}
+
 .done {
     width: calc(90% / 3);
     height: 600px;
@@ -513,11 +635,38 @@ form {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
+.done .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 520px;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.done .container::-webkit-scrollbar {
+    display: none;
+}
+
 .userDash {
     background-color: white;
     width: 30%;
     height: 100vh;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    display: none;
+    animation: openUser 0.1s ease forwards;
+}
+
+@keyframes openUser {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .userIcons {
@@ -526,6 +675,10 @@ form {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#menuClose:hover {
+    cursor: pointer;
 }
 
 .userIcons svg {
