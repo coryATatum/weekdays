@@ -1,3 +1,5 @@
+
+let todo_modal = document.querySelector('.modal')
 let form = document.getElementById("form");
 let addTask = document.getElementById("submit")
 let input = document.getElementById("content");
@@ -13,22 +15,8 @@ let tally = "0";
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     formValidation();
-    tallyResult();
-
-
+    todo_modal.style.display = 'none'
 });
-
-
-
-function tallyResult() {
-
-    tally++;
-    localStorage.setItem('tally', JSON.stringify(tally));
-    tallyData = (JSON.parse(window.localStorage.getItem('tally')));
-    progressBar.innerHTML = Number(tallyData);
-
-}
-
 
 let formValidation = () => {
     if (input.value === "") {
@@ -71,7 +59,6 @@ let createPost = () => {
         <div class="task-desc"><span>${x.desciption}</span></div>
         <div class="due-date"><strong>Due Date:</strong>${x.dueDate}
             <div class="delete_editIcons">
-                <i onClick="editTask(this);" class=" fas fa-edit"></i>
                 <i onClick="deleteTask(this); createTasks();" id="discard"
                     class="fas fa-trash-alt"></i>
             </div>
@@ -113,99 +100,22 @@ let deleteTask = (e) => {
     data.splice(e.parentElement.parentElement.id, 1);
 
     localStorage.setItem("data", JSON.stringify(data));
-    discard(e);
 };
-
-
-
-function discard() {
-
-    tally--;
-    localStorage.setItem('tally', JSON.stringify(tally));
-    tallyData = (JSON.parse(window.localStorage.getItem('tally')));
-    progressBar.innerHTML = tallyData;
-}
 
 (() => {
     data = JSON.parse(localStorage.getItem("data")) || [];
     tallyData = (JSON.parse(window.localStorage.getItem('tally'))) || "0";
     createPost();
-    tallyResult();
-    discard();
-
-
 })()
-
-//----------------------------Drag and Drop---------------------//
-
-
-const draggables = document.querySelectorAll('.task-card')
-const containers = document.querySelectorAll('.container')
-
-draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', () => {
-        draggable.classList.add('dragging')
-        removeItem(data);
-    })
-
-    draggable.addEventListener('dragend', () => {
-        draggable.classList.remove('dragging')
-    })
-})
-
-containers.forEach(container => {
-    container.addEventListener('dragover', e => {
-        e.preventDefault()
-        const afterElement = getDragAfterElement(container, e.clientY)
-        const draggable = document.querySelector('.dragging')
-        if (afterElement == null) {
-            container.appendChild(draggable)
-        } else {
-            container.insertBefore(draggable, afterElement)
-        }
-    })
-
-})
-
-function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
-
-    return draggableElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect()
-        const offset = y - box.top - box.height / 2
-        if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child }
-        } else {
-            return closest
-        }
-    }, { offset: Number.NEGATIVE_INFINITY }).element
-}
-
-//----------------USER DASH------------------------//
-
-let menuIcon = document.getElementById('menu');
-let userDashboard = document.querySelector('.userDash');
-let closeIcon = document.getElementById('menuClose');
-
-menuIcon.addEventListener('click', dashOpen)
-
-function dashOpen() {
-    userDashboard.style.display = 'block';
-    menuIcon.style.display = 'none';
-}
-
-closeIcon.addEventListener('click', dashClose)
-
-function dashClose() {
-    userDashboard.style.display = 'none';
-    menuIcon.style.display = 'block';
-}
-
 //----------------Nav Bar------------------//
 
 let todoPage = document.getElementById('todoPage');
 let activity = document.querySelector('.activity');
 let homepage = document.querySelector('.home');
+let calPage = document.querySelector('.cal');
+let calOpenBtn = document.getElementById('calBtn');
+let stickNotesPage = document.querySelector('.stickyNotes');
+let stickyNoteBtn = document.getElementById('stickNotes');
 
 todoPage.addEventListener('click', openToDo)
 
@@ -213,22 +123,28 @@ function openToDo() {
     activity.style.display = 'block';
     calPage.style.display = 'none'
     homepage.style.display = 'none';
-
+    stickNotesPage.style.display = 'none'
 }
-
-//--------------------Calender-------------//
-
-let calPage = document.querySelector('.cal');
-let calOpenBtn = document.getElementById('calBtn');
 
 calOpenBtn.addEventListener('click', openCal);
 
 function openCal() {
+    stickNotesPage.style.display = 'none'
     homepage.style.display = 'none'
     calPage.style.display = 'block'
     activity.style.display = 'none'
 }
 
+stickyNoteBtn.addEventListener('click', openStickyNote);
+
+function openStickyNote() {
+    stickNotesPage.style.display = 'block'
+    homepage.style.display = 'none'
+    calPage.style.display = 'none'
+    activity.style.display = 'none'
+}
+
+//--------------------Calender-------------//
 
 
 let nav = 0;
@@ -321,6 +237,7 @@ function closeModal() {
     backDrop.style.display = 'none';
     eventTitleInput.value = '';
     clicked = null;
+
     load();
 }
 
@@ -365,6 +282,56 @@ function initButtons() {
 
 initButtons();
 load();
+
+//----------------------------Sticky Notes --------------------------//
+
+var random_margin = ["-5px", "1px", "5px", "10px", "7px"];
+var random_colors = ["#c2ff3d", "#ff3de8", "#3dc2ff", "#04e022", "#bc83e6", "#ebb328"];
+var random_degree = ["rotate(3deg)", "rotate(1deg)", "rotate(-1deg)", "rotate(-3deg)", "rotate(-5deg)", "rotate(-8deg)"];
+var index = 0;
+
+
+window.onload = document.querySelector("#user_input").select();
+
+document.querySelector("#add_note").addEventListener("click", () => {
+    document.querySelector("#stickyModal").style.display = "block";
+});
+
+document.querySelector("#hide").addEventListener("click", () => {
+    document.querySelector("#stickyModal").style.display = "none";
+
+});
+
+document.querySelector("#user_input").addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        const text = document.querySelector("#user_input");
+        createStickyNote(text.value);
+    }
+});
+
+createStickyNote = (text) => {
+    let note = document.createElement("div");
+    let details = document.createElement("div");
+    let noteText = document.createElement("h1");
+
+    note.className = "note";
+    details.className = "details";
+    noteText.textContent = text;
+
+    details.appendChild(noteText);
+    note.appendChild(details);
+
+    if (index > random_colors.length - 1)
+        index = 0;
+
+    note.setAttribute("style", `margin:${random_margin[Math.floor(Math.random() * random_margin.length)]}; background-color:${random_colors[index++]}; transform:${random_degree[Math.floor(Math.random() * random_degree.length)]}`);
+
+    note.addEventListener("dblclick", () => {
+        note.remove();
+    })
+
+    document.querySelector("#all_notes").appendChild(note);
+}
 
 
 

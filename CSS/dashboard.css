@@ -667,118 +667,6 @@ form {
     display: none;
 }
 
-.userDash {
-    background-color: white;
-    width: 30%;
-    height: 100vh;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-    display: none;
-    animation: openUser 0.1s ease forwards;
-}
-
-@keyframes openUser {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.userIcons {
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#menuClose:hover {
-    cursor: pointer;
-}
-
-.userIcons svg {
-    color: grey;
-}
-
-.profile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    width: 100%;
-    height: 150px;
-}
-
-.profile ul li {
-    line-height: 1.8em;
-}
-
-.profile ul li span {
-    margin-left: 5px;
-
-}
-
-#profilePic {
-    height: 5rem;
-    width: 5rem;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    border-radius: 50%;
-    background: url(../images/Afterligh\(10\).jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-.progress {
-    padding: 5px;
-    width: 100%;
-}
-
-.progress ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.stats {
-    margin: 2px;
-    padding: 5px;
-    height: 50px;
-    width: 100%;
-}
-
-.stats ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.stats h5 {
-    font-size: 2rem;
-}
-
-.profileEdit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    margin: 5px;
-}
-
-
-.draggable {
-    padding: 1rem;
-    background-color: white;
-    border: 1px solid black;
-    cursor: move;
-}
-
-.draggable.dragging {
-    opacity: .5;
-}
 
 /***************** Calender ************************/
 
@@ -824,9 +712,8 @@ button {
 
 #container {
     width: 100%;
-    height: 650px;
+    height: 660px;
     overflow: hidden;
-    border: 1px solid white;
 }
 
 #weekdays {
@@ -989,3 +876,127 @@ button {
 }
 
 /*************** Sticky Notes ****************/
+
+
+
+section.stickyNotes {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: #c68c53a8;
+    display: none;
+    overflow: scroll;
+}
+
+#add_note:hover {
+    cursor: pointer;
+}
+
+#stickyModal {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#inner_modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-right: 150px;
+}
+
+#inner_modal textarea {
+    width: 276px;
+    height: 276px;
+    padding: 25px;
+    outline: none;
+    resize: none;
+    font-size: 1.5rem;
+    font-family: 'Architects Daughter', cursive;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+}
+
+#inner_modal i {
+    font-size: 1.4rem;
+    color: gray;
+    cursor: pointer;
+    margin-top: -200px;
+    margin-left: -35px;
+    transition: 1s ease-in-out;
+}
+
+#inner_modal i:hover {
+    color: lightgray;
+}
+
+.stickyContainer {
+    width: 1280px;
+    margin: auto;
+}
+
+#header {
+    color: white;
+    padding: 0 20px;
+    min-height: 70px;
+    text-shadow: 1px 1px black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fas {
+    color: #c2ff3d;
+}
+
+#all_notes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.note {
+    width: 300px;
+    height: 300px;
+    transition: 2s;
+    cursor: pointer;
+    overflow-wrap: break-word;
+    box-shadow: 0px 10px 24px 0px rgba(0, 0, 0, 0.75);
+}
+
+.note h1 {
+    font-size: 1.5rem;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.details {
+    margin-top: 25px;
+    padding: 0 15px;
+    font-size: 1.5rem;
+}
+
+.details i {
+    color: whitesmoke;
+    cursor: pointer;
+    text-shadow: 1px 1px #BBB;
+}
+
+@media(max-width:1280px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media(max-width:768px) {
+    #header {
+        padding: 20px;
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
