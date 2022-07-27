@@ -408,22 +408,6 @@ form {
     background-size: 15rem;
 }
 
-.tasks .doing {
-    background: url('../img/undraw_add_files_re_v09g\ \(1\).svg');
-    background-color: #E69A8DFF;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 15rem;
-}
-
-.tasks .done {
-    background: url('../img/undraw_add_files_re_v09g\ \(1\).svg');
-    background-color: #E69A8DFF;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 15rem;
-}
-
 .toDoCards .task-card {
     display: flex;
     justify-content: center;
@@ -482,6 +466,7 @@ form {
     display: flex;
     justify-content: space-evenly;
     width: 30%;
+    color: #E69A8DFF;
 }
 
 .due-date svg:hover {
@@ -695,9 +680,11 @@ button {
     border-radius: 12px;
     color: white;
     font-family: "Playfair Display", sans-serif;
+
 }
 
-#header {
+#calenderHeader {
+    width: 95%;
     padding: 10px;
     color: #d36c6c;
     font-size: 26px;
@@ -706,8 +693,19 @@ button {
     justify-content: space-evenly;
 }
 
-#header button {
-    background-color: #92a1d1;
+.toggleBtn {
+    position: absolute;
+    right: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10%;
+    color: #E69A8DFF;
+}
+
+.toggleBtn p:hover {
+    cursor: pointer;
 }
 
 #container {
@@ -721,7 +719,7 @@ button {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    color: #d36c6c;
+    color: #E69A8DFF;
     font-weight: 700;
 }
 
@@ -755,18 +753,20 @@ button {
     height: 150px;
     cursor: pointer;
     box-sizing: border-box;
-    background-color: #C7D3D4FF;
+    background-color: #FFD6D1;
     margin: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 12px;
+    font-weight: 700;
 }
 
 #monthDisplay {
     font-family: "Playfair Display", sans-serif;
     font-weight: 700;
+    color: #E69A8DFF;
 }
 
 .day:hover {
@@ -782,8 +782,9 @@ button {
     font-weight: 700;
     font-family: "Playfair Display", sans-serif;
     padding: 3px;
-    background-color: #d36c6c;
-    color: #603F83FF;
+    background-color: #FF5733;
+    color: #272727;
+    font-weight: 700;
     border-radius: 5px;
     max-height: 55px;
     overflow: hidden;
@@ -797,6 +798,8 @@ button {
 
 #newEventModal h2 {
     text-align: center;
+    margin-bottom: 25px;
+    color: #272727;
     font-family: "Playfair Display", sans-serif;
 }
 
@@ -860,7 +863,7 @@ button {
 }
 
 #eventText {
-    font-size: 14px;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -883,7 +886,7 @@ section.stickyNotes {
     width: 100%;
     height: 100vh;
     position: relative;
-    background-color: #c68c53a8;
+    background-color: #E69A8DFF;
     display: none;
     overflow: scroll;
 }
@@ -938,18 +941,26 @@ section.stickyNotes {
 }
 
 #header {
-    color: white;
+    color: #603F83FF;
+    font-size: 2rem;
     padding: 0 20px;
     min-height: 70px;
-    text-shadow: 1px 1px black;
+    text-shadow: 1px 1px white;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
-.fas {
-    color: #c2ff3d;
+.addStickyBtn {
+    width: 10%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.addStickyBtn svg {
+    margin-right: 15px;
 }
 
 #all_notes {

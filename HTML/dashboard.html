@@ -15,40 +15,6 @@
 <body>
     <section class="landing">
 
-        <!--------------------------------todo modal----------------------------------------------->
-        <div class="modal">
-            <div class="card">
-                <svg id="close" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
-                    height="1.3em" width="1.3em" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
-                    </path>
-                </svg>
-                <div class="brand">
-                    <img src="../img/undraw_Next_tasks_re_5eyy (2).png" alt="">
-                </div>
-                <div class="info">
-                    <div class="modalTitle">
-                        <h2>New Task</h2>
-                    </div>
-                    <form id="form">
-                        <div class="taskTitle">
-                            <input type="text" placeholder="Enter Task" name="content" id="content">
-                        </div>
-                        <div class="deadline">
-                            <input type="date" name="date" id="date" placeholder="Enter Deadline">
-                        </div>
-                        <div class="taskDescription">
-                            <textarea name="description" id="description" cols="5" rows="5"
-                                placeholder="Description"></textarea>
-                        </div>
-                        <div class="submit">
-                            <button type="submit" class="btn" id="submit">Add +</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
         <!--------------------------------------Nav Bar--------------------------------------------------------------------->
         <aside>
             <div class="navIcons">
@@ -120,15 +86,107 @@
                 </svg></div>
         </aside>
 
+        <!-------------------------------------Home Page------------------------------------------------------------------------->
+        <section class="home">
+            <header class="headerHome">
+                <h1><strong>Welcome to Weekdays, ${name}</strong></h1>
+            </header>
+            <div class="selection">
+                <div class="first">
+                    <div class="widget" onclick="openToDo();">
+                        <div id="todoList"></div>
+                        <div class="selectionTitle">
+                            <h1>To Do List</h1>
+                        </div>
+
+                    </div>
+                    <div class="widget" onclick="openCal();">
+                        <div id="calender"></div>
+                        <div class="selectionTitle">
+                            <h1>Calender</h1>
+                        </div>
+                    </div>
+
+                    <div class="widget" onclick="openStickyNote();">
+                        <div id="stickyNotes"></div>
+                        <div class="selectionTitle">
+                            <h1>Sticky Notes</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="second">
+                    <div class="widget">
+                        <div id="budget"></div>
+                        <div class="selectionTitle">
+                            <h1>Budget Planning</h1>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div id="wellness"></div>
+                        <div class="selectionTitle">
+                            <h1>Wellness Check</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--------------------------------todo modal----------------------------------------------->
+
+        <div class="modal">
+            <div class="card">
+                <svg id="close" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
+                    height="1.3em" width="1.3em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
+                    </path>
+                </svg>
+                <div class="brand">
+                    <img src="../img/undraw_Next_tasks_re_5eyy (2).png" alt="">
+                </div>
+                <div class="info">
+                    <div class="modalTitle">
+                        <h2>New Task</h2>
+                    </div>
+                    <form id="form">
+                        <div class="taskTitle">
+                            <input type="text" placeholder="Enter Task" name="content" id="content">
+                        </div>
+                        <div class="deadline">
+                            <input type="date" name="date" id="date" placeholder="Enter Deadline">
+                        </div>
+                        <div class="taskDescription">
+                            <textarea name="description" id="description" cols="5" rows="5"
+                                placeholder="Description"></textarea>
+                        </div>
+                        <div class="submit">
+                            <button type="submit" class="btn" id="submit">Add +</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!-------------------------------------Calender----------------------------------------------------------------------->
+
         <section class="cal">
 
             <div id="container">
-                <div id="header">
+                <div id="calenderHeader">
                     <div id="monthDisplay"></div>
-                    <div>
-                        <button id="backButton">Back</button>
-                        <button id="nextButton">Next</button>
+                    <div class="toggleBtn">
+                        <p id="backButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 1024 1024" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z">
+                                </path>
+                            </svg></p>
+                        <p id="nextButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 1024 1024" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M869 487.8L491.2 159.9c-2.9-2.5-6.6-3.9-10.5-3.9h-88.5c-7.4 0-10.8 9.2-5.2 14l350.2 304H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h585.1L386.9 854c-5.6 4.9-2.2 14 5.2 14h91.5c1.9 0 3.8-.7 5.2-2L869 536.2a32.07 32.07 0 0 0 0-48.4z">
+                                </path>
+                            </svg></p>
                     </div>
                 </div>
 
@@ -168,52 +226,9 @@
             <div id="modalBackDrop"></div>
 
         </section>
-        <!-------------------------------------Home Page------------------------------------------------------------------------->
-        <section class="home">
-            <header class="headerHome">
-                <h1><strong>Welcome to Weekdays, ${name}</strong></h1>
-            </header>
-            <div class="selection">
-                <div class="first">
-                    <div class="widget">
-                        <div id="todoList"></div>
-                        <div class="selectionTitle">
-                            <h1>To Do List</h1>
-                        </div>
-
-                    </div>
-                    <div class="widget">
-                        <div id="calender"></div>
-                        <div class="selectionTitle">
-                            <h1>Calender</h1>
-                        </div>
-                    </div>
-
-                    <div class="widget">
-                        <div id="stickyNotes"></div>
-                        <div class="selectionTitle">
-                            <h1>Sticky Notes</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="second">
-                    <div class="widget">
-                        <div id="budget"></div>
-                        <div class="selectionTitle">
-                            <h1>Budget Planning</h1>
-                        </div>
-                    </div>
-                    <div class="widget">
-                        <div id="wellness"></div>
-                        <div class="selectionTitle">
-                            <h1>Wellness Check</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!----------------------------------------Todo Section--------------------------------------------------------------------->
+
         <section class="activity" id="todo">
             <div class="taskDashboard">
                 <header>
@@ -267,6 +282,8 @@
             </div>
         </section>
 
+        <!---------------------------------------Sticky Notes-------------------------------------------------->
+
         <section class="stickyNotes">
             <div id="stickyModal">
                 <div id="inner_modal">
@@ -280,9 +297,10 @@
                 <header>
                     <div class="stickyContainer">
                         <div id="header">
-                            <h1></i> Sticky Notes</h1>
-                            <p id="add_note"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                    viewBox="0 0 16 16" height="1.8em" width="1.8em" xmlns="http://www.w3.org/2000/svg">
+                            <h1> Sticky Notes</h1>
+                            <div class="addStickyBtn">
+                                <svg id="add_note" stroke="currentColor" fill="currentColor" stroke-width="0"
+                                    viewBox="0 0 16 16" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                         d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z"
                                         clip-rule="evenodd"></path>
@@ -292,7 +310,9 @@
                                     <path fill-rule="evenodd"
                                         d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
                                         clip-rule="evenodd"></path>
-                                </svg></p>
+                                </svg>
+
+                            </div>
                         </div>
                     </div>
                 </header>
@@ -303,6 +323,10 @@
                     </div>
                 </section>
         </section>
+
+        <!---------------------------------------Budget------------------------------------------------------------>
+
+
 
 
     </section>
