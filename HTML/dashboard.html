@@ -9,17 +9,50 @@
     <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap' />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/dashboard.css">
-    <title>Dashboard!</title>
+
+    <title>weekdays</title>
 </head>
 
 <body>
+
+    <section class="mediaHomePage" id="homePage">
+        <div id="mediaBegin">
+
+
+            <a href="#home" id="beginBtn">
+                <h3>- media coming soon - </h3>
+            </a>
+
+
+
+
+
+        </div>
+    </section>
+
+    <section class="homePage" id="homePage">
+        <div id="empty"></div>
+        <div id="clickHere">
+
+
+            <a href="#home">
+                <h3>- begin here - </h3>
+            </a>
+
+
+
+
+
+        </div>
+    </section>
+
     <section class="landing">
 
         <!--------------------------------------Nav Bar--------------------------------------------------------------------->
         <aside>
             <div class="navIcons">
                 <ul>
-                    <a href="">
+                    <a href="#home" id="homeBtn">
                         <li><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
                                 height="1.8em" width="1.8em" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -61,77 +94,54 @@
                             </svg></li>
                     </a>
 
-                    <a href="">
-                        <li><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
-                                height="1.8em" width="1.8em" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.828 4a3 3 0 01-2.12-.879l-.83-.828A1 1 0 006.173 2H2.5a1 1 0 00-1 .981L1.546 4h-1L.5 3a2 2 0 012-2h3.672a2 2 0 011.414.586l.828.828A2 2 0 009.828 3v1z">
-                                </path>
-                                <path fill-rule="evenodd"
-                                    d="M13.81 4H2.19a1 1 0 00-.996 1.09l.637 7a1 1 0 00.995.91h10.348a1 1 0 00.995-.91l.637-7A1 1 0 0013.81 4zM2.19 3A2 2 0 00.198 5.181l.637 7A2 2 0 002.826 14h10.348a2 2 0 001.991-1.819l.637-7A2 2 0 0013.81 3H2.19z"
-                                    clip-rule="evenodd"></path>
-                            </svg></li>
-                    </a>
-                    <a href="">
-                        <li></li>
-                    </a>
+
                 </ul>
             </div>
-            <div id="logout"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
-                    height="2em" width="2em" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 13L16 11 7 11 7 8 2 12 7 16 7 13z"></path>
-                    <path
-                        d="M20,3h-9C9.897,3,9,3.897,9,5v4h2V5h9v14h-9v-4H9v4c0,1.103,0.897,2,2,2h9c1.103,0,2-0.897,2-2V5C22,3.897,21.103,3,20,3z">
-                    </path>
-                </svg></div>
+
         </aside>
 
         <!-------------------------------------Home Page------------------------------------------------------------------------->
-        <section class="home">
+        <section class="home" id="home">
             <header class="headerHome">
-                <h1><strong>Welcome to Weekdays, ${name}</strong></h1>
+                <h1><strong>Welcome to Weekdays.</strong></h1>
+                <svg id="navOpen" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
+                    height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z">
+                    </path>
+                </svg>
             </header>
             <div class="selection">
-                <div class="first">
-                    <div class="widget" onclick="openToDo();">
-                        <div id="todoList"></div>
-                        <div class="selectionTitle">
-                            <h1>To Do List</h1>
-                        </div>
 
-                    </div>
-                    <div class="widget" onclick="openCal();">
-                        <div id="calender"></div>
-                        <div class="selectionTitle">
-                            <h1>Calender</h1>
-                        </div>
+
+                <div class="widget todoWidget" onclick="openToDo();">
+                    <div id="todoList"></div>
+                    <div class="selectionTitle">
+                        <h1>To Do List</h1>
                     </div>
 
-                    <div class="widget" onclick="openStickyNote();">
-                        <div id="stickyNotes"></div>
-                        <div class="selectionTitle">
-                            <h1>Sticky Notes</h1>
-                        </div>
+                </div>
+                <div class="widget" onclick="openCal();">
+                    <div id="calender"></div>
+                    <div class="selectionTitle">
+                        <h1>Calender</h1>
                     </div>
                 </div>
-                <div class="second">
-                    <div class="widget">
-                        <div id="budget"></div>
-                        <div class="selectionTitle">
-                            <h1>Budget Planning</h1>
-                        </div>
-                    </div>
-                    <div class="widget">
-                        <div id="wellness"></div>
-                        <div class="selectionTitle">
-                            <h1>Wellness Check</h1>
-                        </div>
+
+                <div class="widget" onclick="openStickyNote();">
+                    <div id="stickyNotes"></div>
+                    <div class="selectionTitle">
+                        <h1>Sticky Notes</h1>
                     </div>
                 </div>
+
+
             </div>
         </section>
 
         <!--------------------------------todo modal----------------------------------------------->
+
+
 
         <div class="modal">
             <div class="card">
@@ -230,6 +240,15 @@
         <!----------------------------------------Todo Section--------------------------------------------------------------------->
 
         <section class="activity" id="todo">
+            <header class="activityHeader">
+                <h3>To-Do List</h3>
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.8em"
+                    width="1.8em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M21 11L6.414 11 11.707 5.707 10.293 4.293 2.586 12 10.293 19.707 11.707 18.293 6.414 13 21 13z">
+                    </path>
+                </svg>
+            </header>
             <div class="taskDashboard">
                 <header>
                     <div class="welcome">
@@ -324,7 +343,7 @@
                 </section>
         </section>
 
-        <!---------------------------------------Budget------------------------------------------------------------>
+
 
 
 

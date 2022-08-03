@@ -9,7 +9,7 @@ let posts = document.querySelector(".toDoContainer");
 let remove = document.getElementById('discard');
 let toDoBg = document.querySelector('toDo');
 let progressBar = document.getElementById('progressResult');
-let tally = "0";
+let homePage = document.querySelector('.homePage')
 
 //-------------------To Do---------------------------------//
 form.addEventListener("submit", (e) => {
@@ -112,10 +112,42 @@ let deleteTask = (e) => {
 let todoPage = document.getElementById('todoPage');
 let activity = document.querySelector('.activity');
 let homepage = document.querySelector('.home');
+let hpBtn = document.getElementById('homeBtn')
 let calPage = document.querySelector('.cal');
 let calOpenBtn = document.getElementById('calBtn');
 let stickNotesPage = document.querySelector('.stickyNotes');
 let stickyNoteBtn = document.getElementById('stickNotes');
+let logoutBtn = document.getElementById('logoutBtn');
+const mq = window.matchMedia("(max-width: 600px)");
+
+window.onload = mediaLoad();
+
+function mediaLoad() {
+    if (mq.matches) {
+        document.querySelector('.mediaHomePage').style.display = 'block';
+        document.querySelector('.landing').style.display = 'none';
+    } else {
+        document.querySelector('.mediaHomePage').style.display = 'none';
+    }
+}
+
+document.getElementById('beginBtn').addEventListener('click', scroll)
+
+function scroll() {
+    document.querySelector('.landing').style.display = 'block';
+    document.querySelector('.mediaHomePage').style.display = 'none';
+}
+
+hpBtn.addEventListener('click', openHome)
+
+function openHome() {
+    homepage.style.display = 'block'
+    homePage.style.display = 'block'
+    activity.style.display = 'none';
+    calPage.style.display = 'none'
+    stickNotesPage.style.display = 'none';
+
+}
 
 todoPage.addEventListener('click', openToDo)
 
@@ -123,7 +155,9 @@ function openToDo() {
     activity.style.display = 'block';
     calPage.style.display = 'none'
     homepage.style.display = 'none';
-    stickNotesPage.style.display = 'none'
+    stickNotesPage.style.display = 'none';
+    homePage.style.display = 'none'
+
 }
 
 calOpenBtn.addEventListener('click', openCal);
@@ -133,6 +167,7 @@ function openCal() {
     homepage.style.display = 'none'
     calPage.style.display = 'block'
     activity.style.display = 'none'
+    homePage.style.display = 'none'
 }
 
 stickyNoteBtn.addEventListener('click', openStickyNote);
@@ -142,7 +177,10 @@ function openStickyNote() {
     homepage.style.display = 'none'
     calPage.style.display = 'none'
     activity.style.display = 'none'
+    homePage.style.display = 'none'
 }
+
+
 
 //--------------------Calender-------------//
 
@@ -286,7 +324,7 @@ load();
 //----------------------------Sticky Notes --------------------------//
 
 var random_margin = ["-5px", "1px", "5px", "10px", "7px"];
-var random_colors = ["#c2ff3d", "#ff3de8", "#3dc2ff", "#04e022", "#bc83e6", "#ebb328"];
+var random_colors = ["#a26360", "#d4a29c", "#e8b298", "#edcc8b", "#bdd1c5", "#9daaa2"];
 var random_degree = ["rotate(3deg)", "rotate(1deg)", "rotate(-1deg)", "rotate(-3deg)", "rotate(-5deg)", "rotate(-8deg)"];
 var index = 0;
 let stickyModal = document.getElementById('stickyModal');
@@ -296,6 +334,7 @@ window.onload = document.querySelector("#user_input").select();
 
 document.querySelector("#add_note").addEventListener("click", () => {
     document.querySelector("#stickyModal").style.display = "block";
+    homePage.style.display = 'none'
 });
 
 document.querySelector("#hide").addEventListener("click", () => {
